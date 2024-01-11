@@ -1,0 +1,92 @@
+In the portal class the code only displays the menu for the portal and asks the input from the user whether they want to enter as a member or librarian or simply exit the portal
+In case the user enters as a librarian a set of functions are displayed that can be performed as a librarian and jumps to the library class.
+
+below are the functions for the librarian class:-
+
+THE CONSTRUCTOR
+It initializes several private instance variables, including members, books, librarybooks, and memberborrowedbooks, with empty collections.
+
+BORROW BOOK FUNCTION
+It checks if the member exists in the members map and if the book is available in the librarybooks map.
+If both conditions are met, it marks the book as borrowed, records the current time, and updates the memberborrowedbooks map to keep track of the books borrowed by the member.
+Returns true if the book is successfully borrowed, and false otherwise.
+
+FIND MEMBER FUNCTION
+It takes a member ID (mId) as a parameter and returns the corresponding Member object from the members map.
+
+FIND BOOK FUNCTION
+It takes the book's title and author as parameters.
+It iterates through the books list and returns the first book with matching title and author (case-insensitive).
+Returns null if no matching book is found.
+
+REGISTER MEMBER FUNCTION
+It checks if a member with the same ID already exists in the members map. If not, it creates a new Member object and adds it to the map, indicating a successful registration. If a member with the same ID already exists, it prints an error message.
+
+REMOVE MEMBER FUNCTION
+This method removes a member from the library based on their ID (mId).
+It checks if a member with the specified ID exists in the members map. If found, it removes the member and prints a success message. If not found, it prints an error message.
+
+ADD BOOK FUNCTION
+The code declares some private variables (booksbyid and bookIdcount) and provides a method addBook to add new books to the library.
+The addBook method takes parameters like title, author, and copies, and it adds multiple copies of the book to the library by generating unique book IDs.
+
+VIEW ALL MEMBERS FUNCTION
+It iterates through the members map and prints the details of each member, including their ID, name, age, and phone number.
+
+VIEW ALL BOOKS FUNCTION
+It iterates through the librarybooks map and prints the details of each book, including its ID, title, and author.
+
+FIND BOOK BY ID FUNCTION
+It takes a book ID as a parameter and returns the corresponding Book object from the booksbyid map.
+
+REMOVE BOOK FUNCTION
+It checks if the book with the specified ID exists in the librarybooks map. If found, it removes the book and prints a success message. If not found, it prints an error message.
+
+below are the functions for the book class:-
+
+IS AVAILABLE
+It checks the available property and returns true if the book is available (not borrowed) or false if it's currently borrowed.
+
+SET AVAILABLE
+It takes a boolean parameter available and sets the available property accordingly, marking the book as either available or not available.
+
+GET BOOK ID
+This method returns the unique identifier (book ID) of the book.
+
+GET TITLE , GET AUTHOR
+This method returns the title and author of the book
+
+GET AND SET BORROWED TIME
+This method returns the borrowed time of the book. The borrowed time is typically represented as a timestamp (in milliseconds) indicating when the book was borrowed.
+It takes a long parameter borrowedTime (timestamp) and updates the borrowedTime property with the provided value.
+
+below are the functions for the book class:-
+
+CONSTRUCTOR
+It initializes a Member object with the following parameters:
+mId: Member ID
+mName: Member name
+age: Member's age
+contactnumber: Member's contact number
+It also initializes an empty list called borrowedBookIds to keep track of the book IDs that this member has borrowed.
+The fines are initialized to 0, indicating that the member currently has no fines to pay.
+The available property is initialized to true, which is initially set to indicate the member's availability (whether they are available for book borrowing or not).
+
+GET AGE, CONTACT NUMBER , MID , MNAME , BORROWED BOOK IDS , FINES FUNCTIONS
+This method returns the age, contact number , memberID , member name , ID of borrowed books and fines of the member.
+
+BORROW BOOK FUNCTION
+It takes two parameters: bookId (the ID of the book to be borrowed) and librarian (an instance of the Librarian class).
+It checks if the book is available and not already borrowed by someone else. If the book is available, it marks it as borrowed and adds the book ID to the member's borrowedBookIds list.
+It also sets the current time as the borrowed time for the book.
+If the book is not available or not found, it prints an appropriate message.
+
+RETURN BOOK FUNCTION
+It takes two parameters: bookId (the ID of the book to be returned) and librarian (an instance of the Librarian class).
+It checks if the member has actually borrowed the book by verifying if bookId is in their borrowedBookIds list.
+If the book is borrowed by the member, it marks the book as available, removes the book ID from the member's borrowedBookIds list, and calculates any fines based on the due date.
+If the book is not found or not borrowed by the member, it prints an appropriate message.
+
+PAY FINE FUNCTION
+This method allows the member to pay their fines.
+It prints a message indicating the total fine amount and marks it as paid.
